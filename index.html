@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Happy Birthday</title>
+    <style>
+      :root {
+        --bg1: #ff8a80;
+        --bg2: #f06292;
+        --bg3: #7e57c2;
+        --card: rgba(255, 255, 255, 0.18);
+        --text: #fff7f7;
+        --soft: #ffe8ef;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        display: grid;
+        place-items: center;
+        font-family: Arial, Helvetica, sans-serif;
+        background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
+        color: var(--text);
+      }
+
+      .card {
+        width: min(90vw, 620px);
+        padding: 3rem 2rem;
+        border-radius: 24px;
+        background: var(--card);
+        backdrop-filter: blur(8px);
+        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .cake {
+        font-size: 4rem;
+        margin-bottom: 0.5rem;
+      }
+
+      h1 {
+        margin: 0.2rem 0 0.8rem;
+        font-size: clamp(2.4rem, 5vw, 4rem);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .birthday-image {
+        display: block;
+        width: min(100%, 480px);
+        aspect-ratio: 16 / 9;
+        margin: 1.5rem auto;
+        border-radius: 16px;
+        object-fit: cover;
+      }
+
+      p {
+        margin: 0.5rem auto;
+        max-width: 480px;
+        font-size: 1.1rem;
+        line-height: 1.6;
+        color: var(--soft);
+      }
+
+      .balloons {
+        font-size: 2.4rem;
+        letter-spacing: 0.5rem;
+        margin-top: 1.25rem;
+      }
+
+      .video-link {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.7rem 1.2rem;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.18);
+        border: 1px solid rgba(255, 255, 255, 0.24);
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        transition: transform 0.2s ease, background 0.2s ease;
+      }
+
+      .video-link:hover,
+      .video-link:focus-visible {
+        transform: translateY(-1px);
+        background: rgba(255, 255, 255, 0.28);
+      }
+    </style>
+  </head>
+  <body>
+    <main class="card">
+      <div class="cake" aria-label="birthday cake">🎂</div>
+      <h1>Happy Birthday Tosin !</h1>
+
+      <img
+        class="birthday-image"
+        src="us.JPEG"
+        alt="Birthday photo"
+      />
+      <div class="balloons" aria-label="balloons">🎈🎉🎁</div>
+      <a class="video-link" href="./T birth.mp4" target="_blank" rel="noopener noreferrer">Click here for the amazing video🎬</a>
+      <h5>website coded by jess :> </h2>
+    </main>
+  </body>
+</html>

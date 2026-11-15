@@ -1,113 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Happy Birthday</title>
-    <style>
-      :root {
-        --bg1: #ff8a80;
-        --bg2: #f06292;
-        --bg3: #7e57c2;
-        --card: rgba(255, 255, 255, 0.18);
-        --text: #fff7f7;
-        --soft: #ffe8ef;
-      }
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>A Birthday Note</title>
+	<style>
+		:root {
+			--birthday-background: url("bg.jpg");
+		}
 
-      * {
-        box-sizing: border-box;
-      }
+		* { box-sizing: border-box; }
 
-      body {
-        margin: 0;
-        min-height: 100vh;
-        display: grid;
-        place-items: center;
-        font-family: Arial, Helvetica, sans-serif;
-        background: linear-gradient(135deg, var(--bg1), var(--bg2), var(--bg3));
-        color: var(--text);
-      }
+		body {
+			min-height: 100vh;
+			margin: 0;
+			padding: 32px 20px;
+			display: grid;
+			place-items: center;
+			color: #fff;
+			font-family: Georgia, "Times New Roman", serif;
+			background: var(--birthday-background) center / cover no-repeat fixed;
+		}
 
-      .card {
-        width: min(90vw, 620px);
-        padding: 3rem 2rem;
-        border-radius: 24px;
-        background: var(--card);
-        backdrop-filter: blur(8px);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
-        text-align: center;
-        border: 1px solid rgba(255, 255, 255, 0.2);
-      }
+		.card {
+			position: relative;
+			isolation: isolate;
+			width: min(100%, 760px);
+			min-height: 580px;
+			padding: clamp(32px, 8vw, 76px);
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			overflow: hidden;
+			text-align: center;
+			background: rgba(177, 74, 119, 0.88);
+			border: 1px solid rgba(255, 255, 255, .65);
+			border-radius: 28px;
+			box-shadow: 0 24px 70px rgba(15, 8, 24, .38), inset 0 0 0 8px rgba(255, 255, 255, .12);
+		}
 
-      .cake {
-        font-size: 4rem;
-        margin-bottom: 0.5rem;
-      }
+		.card::before,
+		.card::after {
+			position: absolute;
+			z-index: -1;
+			color: rgba(255, 255, 255, .25);
+			font-family: sans-serif;
+			pointer-events: none;
+		}
 
-      h1 {
-        margin: 0.2rem 0 0.8rem;
-        font-size: clamp(2.4rem, 5vw, 4rem);
-        letter-spacing: 0.08em;
-        text-transform: uppercase;
-      }
+		.card::before { content: "✦"; top: 28px; left: 34px; font-size: 30px; }
+		.card::after { content: "✧"; right: 34px; bottom: 28px; font-size: 42px; }
 
-      .birthday-image {
-        display: block;
-        width: min(100%, 480px);
-        aspect-ratio: 16 / 9;
-        margin: 1.5rem auto;
-        border-radius: 16px;
-        object-fit: cover;
-      }
+		.eyebrow {
+			margin: 0 0 18px;
+			font: 600 .76rem/1.4 Arial, sans-serif;
+			letter-spacing: .24em;
+			text-transform: uppercase;
+		}
 
-      p {
-        margin: 0.5rem auto;
-        max-width: 480px;
-        font-size: 1.1rem;
-        line-height: 1.6;
-        color: var(--soft);
-      }
+		h1 {
+			margin: 0;
+			font-size: clamp(3rem, 9vw, 5.5rem);
+			font-weight: 400;
+			line-height: .98;
+			text-shadow: 0 3px 22px rgba(0, 0, 0, .35);
+		}
 
-      .balloons {
-        font-size: 2.4rem;
-        letter-spacing: 0.5rem;
-        margin-top: 1.25rem;
-      }
+		.birthday-image {
+			display: block;
+			width: min(100%, 360px);
+			max-height: 260px;
+			margin: 28px auto;
+			object-fit: cover;
+			border: 2px solid rgba(255, 255, 255, .75);
+			border-radius: 16px;
+			box-shadow: 0 10px 28px rgba(15, 8, 24, .3);
+		}
 
-      .video-link {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.7rem 1.2rem;
-        border-radius: 999px;
-        background: rgba(255, 255, 255, 0.18);
-        border: 1px solid rgba(255, 255, 255, 0.24);
-        color: var(--text);
-        text-decoration: none;
-        font-weight: 700;
-        letter-spacing: 0.04em;
-        transition: transform 0.2s ease, background 0.2s ease;
-      }
+		.divider { margin: 24px auto; color: #ffe3a8; font-size: 1.3rem; }
 
-      .video-link:hover,
-      .video-link:focus-visible {
-        transform: translateY(-1px);
-        background: rgba(255, 255, 255, 0.28);
-      }
-    </style>
-  </head>
-  <body>
-    <main class="card">
-      <div class="cake" aria-label="birthday cake">🎂</div>
-      <h1>Happy Birthday Tosin !</h1>
+		.message {
+			max-width: 520px;
+			margin: 0 auto;
+			font-size: clamp(1.05rem, 2.5vw, 1.25rem);
+			line-height: 1.8;
+			text-shadow: 0 2px 12px rgba(0, 0, 0, .5);
+		}
 
-      <img
-        class="birthday-image"
-        src="us.JPEG"
-        alt="Birthday photo"
-      />
-      <div class="balloons" aria-label="balloons">🎈🎉🎁</div>
-      <a class="video-link" href="https://youtu.be/zc52XfQEQtI" target="_blank" rel="noopener noreferrer">Click here for the amazing video🎬</a>
-      <h5>website coded by jess :> </h2>
-    </main>
-  </body>
+		.card-footer { padding-top: 40px; }
+
+		.continue {
+			display: inline-block;
+			padding: 14px 30px;
+			color: #49304f;
+			background: #fff2d6;
+			border: 1px solid rgba(255, 255, 255, .8);
+			border-radius: 999px;
+			font: 700 .9rem/1 Arial, sans-serif;
+			letter-spacing: .06em;
+			text-decoration: none;
+			transition: transform .2s ease, background-color .2s ease;
+		}
+
+		.continue:hover { transform: translateY(-2px); background: #fff; }
+		.continue:focus-visible { outline: 3px solid #fff; outline-offset: 4px; }
+
+		@media (max-width: 520px) {
+			.card { min-height: 540px; border-radius: 22px; }
+		}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<header>
+			<p class="eyebrow">A little note for you</p>
+			<h1>Happy<br>Birthday!</h1>
+			<div class="divider" aria-hidden="true">✦ &nbsp; ✦ &nbsp; ✦</div>
+		</header>
+		<img class="birthday-image" src="uss.JPEG" alt="A birthday memory">
+		<p class="message">
+			Dear Tosin,<br>
+            I remember the first time we met, how you always knew how to light up a room, how you weren't afraid to speak up, how funny and caring you were to others, how so connected with your faith you were, how easy you forgave people who didn't deserve your forgiveness and I also remember thinking how lucky I am to know you. <br> 
+            I have good days where I think to myself "who can i share my excitement with?" and then I text you.<br> I have bad days where I think "who will make me feel better?" and then I text you. <br> 
+            So thank you for being the person who I can text and laugh at the most random stuff but also have deep conversations and cry on the phone with too. I appreciate you everyday and I hope you have an amazing birthday <3.
+		</p>
+        <p>Proverbs 27:9</p>
+
+		<footer class="card-footer">
+			<a class="continue" href="video.html">Open your birthday surprise&nbsp; →</a>
+		</footer>
+	</main>
+</body>
 </html>
